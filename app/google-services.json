@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "127542973542",
+    "project_id": "givelify-a7014",
+    "storage_bucket": "givelify-a7014.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:127542973542:android:81736bc07f1864c77fc9a7",
+        "android_client_info": {
+          "package_name": "com.example.givelify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "127542973542-nih2uip5kpop579s5bv26504g6ajn8uj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJuKPOo3G_Uz8FL4HdEYPNoUsMwcpygMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "127542973542-nih2uip5kpop579s5bv26504g6ajn8uj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
