@@ -11,4 +11,18 @@
     <string name="email_login_text">Email</string>
     <string name="password_text_login">Password</string>
     <string name="login_button">Login</string>
+    <string name="logo">Logo</string>
+    <string name="dc_register_header">Register a Donation Centre</string>
+    <string name="email_reg_text">Email</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="reg_description">Description of the Organization</string>
+    <string name="reg_org_name">Name of Organization</string>
+    <string name="already_have_an_account">Already have an Account? Sign Up</string>
+    <string name="sign_in">Sign In</string>
+    <string name="city">City</string>
+    <string name="donate_today">Donate Today! Giving is about making a difference.</string>
+    <string name="registration_successful">Registration Successful!</string>
+    <string name="sent_verification">We have sent a verification email to you at</string>
+    <string name="example_email">example@gmail.com</string>
+    <string name="navigate_next">Navigate next</string>
 </resources>

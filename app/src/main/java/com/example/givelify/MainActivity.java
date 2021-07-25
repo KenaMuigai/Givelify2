@@ -8,22 +8,22 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-    private EditText mEmail, mPass;
-    private TextView mTextView;
-    private Button mLoginBtn;
-    private ImageView LoginImage;
+public class MainActivity extends AppCompatActivity {
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        mEmail = findViewById(R.id.email_login);
-        mPass = findViewById(R.id.password_login);
-        mLoginBtn = findViewById(R.id.button_login);
-
+        if (user != null) {
+            // User is signed in
+            setContentView(R.layout.activity_main);
+        } else {
+            // No user is signed in
+            setContentView(R.layout.activity_login);
+        }
 
     }
 }
