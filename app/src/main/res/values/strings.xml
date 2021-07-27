@@ -25,4 +25,14 @@
     <string name="sent_verification">We have sent a verification email to you at</string>
     <string name="example_email">example@gmail.com</string>
     <string name="navigate_next">Navigate next</string>
+    <string name="no_account_sign_up">Have no account? Sign Up</string>
+    <string name="log_out">Log Out</string>
+    <string name="upload_a_photo">Upload a Photo</string>
+    <string name="donation_centers_near_you">Donation Centers Near You</string>
+    <string name="find_dcenters">find dcenters</string>
+    <string name="find">Find</string>
+    <string name="hello_user">Hello User!</string>
+    <string name="find_image">find_dcenters_image</string>
+    <string name="nairobi">Nairobi</string>
+    <string name="upload_image">Upload Image</string>
 </resources>

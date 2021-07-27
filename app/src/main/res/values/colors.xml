@@ -14,4 +14,5 @@
     <color name="et_background">#FFF9F9</color>
     <color name="et_border">#DEACAC</color>
     <color name="dark_blue">#004369</color>
+    <color name="find_dcenters_background">#004369</color>
 </resources>

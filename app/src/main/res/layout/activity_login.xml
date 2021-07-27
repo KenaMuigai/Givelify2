@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/givelify_logo"
-        android:layout_width="105dp"
-        android:layout_height="89dp"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
         android:contentDescription="@string/logo"
         android:padding="0dp"
         android:src="@drawable/ic_logo"
@@ -28,12 +28,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/givelify_logo" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="550dp"
+        android:layout_height="0dp"
         android:background="@drawable/shape"
+        android:elevation="10dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,10 +43,12 @@
 
         <TextView
             android:id="@+id/login_text"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/amsterdam"
             android:text="@string/login_text"
+            android:textAlignment="center"
+            android:textColor="@color/dark_blue"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -53,7 +56,9 @@
             android:id="@+id/email_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:autofillHints="true"
+            android:background="@drawable/et_shape"
             android:drawableStart="@drawable/ic_email"
             android:ems="10"
             android:hint="@string/email_login_text"
@@ -67,6 +72,8 @@
             android:id="@+id/password_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/et_shape"
             android:drawableStart="@drawable/ic_password"
             android:ems="10"
             android:hint="@string/password_text_login"
@@ -79,10 +86,25 @@
 
         <Button
             android:id="@+id/button_login"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:backgroundTint="@color/dark_pink"
-            android:text="@string/login_button" />
+            android:text="@string/login_button"
+            android:clickable="true"
+            app:cornerRadius="20dp" />
+
+        <TextView
+            android:id="@+id/sign_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/no_account_sign_up"
+            android:textAlignment="center"
+            android:clickable="true"
+            android:onClick="launchSignUp"
+            android:textColor="@color/muted_pink"
+            app:layout_constraintTop_toBottomOf="@+id/button_login" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
