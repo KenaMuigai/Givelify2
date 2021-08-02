@@ -11,21 +11,14 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.givelify.Models.Image;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
-
-import org.jetbrains.annotations.NotNull;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -39,7 +32,7 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dc_update);
+        setContentView(R.layout.activity_profile);
 
         uploadBtn = findViewById(R.id.btn_upload);
         imageView = findViewById(R.id.add_photo);
@@ -64,15 +57,13 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void uploadToFirebase(Uri uri) {
         StorageReference fileref = reference.child(System.currentTimeMillis()+"."+getFileExtension(uri));
-        fileref.putFile(uri).addOnSuccessListener(taskSnapshot -> {
-            fileref.getDownloadUrl().addOnSuccessListener(uri1 -> {
-                Image image = new Image(uri1.toString());
-                String imageId = root.push().getKey();
-                root.child(imageId).setValue(image);
-                progBar.setVisibility(View.INVISIBLE);
-                Toast.makeText(ProfileActivity.this, "Upload Successful", Toast.LENGTH_SHORT).show();
-            });
-        }).addOnProgressListener(snapshot -> progBar.setVisibility(View.VISIBLE)).addOnFailureListener(e -> {
+        fileref.putFile(uri).addOnSuccessListener(taskSnapshot -> fileref.getDownloadUrl().addOnSuccessListener(uri1 -> {
+            Image image = new Image(uri1.toString());
+            String imageId = root.push().getKey();
+            root.child(imageId).setValue(image);
+            progBar.setVisibility(View.INVISIBLE);
+            Toast.makeText(ProfileActivity.this, "Upload Successful", Toast.LENGTH_SHORT).show();
+        })).addOnProgressListener(snapshot -> progBar.setVisibility(View.VISIBLE)).addOnFailureListener(e -> {
             progBar.setVisibility(View.INVISIBLE);
             Toast.makeText(ProfileActivity.this, "Upload Failed", Toast.LENGTH_SHORT).show();
         });

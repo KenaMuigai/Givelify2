@@ -22,7 +22,7 @@
     <string name="city">City</string>
     <string name="donate_today">Donate Today! Giving is about making a difference.</string>
     <string name="registration_successful">Registration Successful!</string>
-    <string name="sent_verification">We have sent a verification email to you at</string>
+    <string name="sent_verification">We have sent a verification email to you at. Confirm your account as soon as possible</string>
     <string name="example_email">example@gmail.com</string>
     <string name="navigate_next">Navigate next</string>
     <string name="no_account_sign_up">Have no account? Sign Up</string>
@@ -35,4 +35,14 @@
     <string name="find_image">find_dcenters_image</string>
     <string name="nairobi">Nairobi</string>
     <string name="upload_image">Upload Image</string>
+    <string name="donation_centre_image">Donation Centre Image</string>
+    <string name="gallery">Gallery</string>
+    <string name="donation_items_list">Donation Items List</string>
+    <string name="about_us">About Us</string>
+    <string name="view">View</string>
+    <string name="fab_donate">FAB Donate</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Logout</string>
+    <string name="popular_donation_items">Popular Donation Items</string>
+
 </resources>
