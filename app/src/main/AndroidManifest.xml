@@ -10,14 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Givelify">
         <activity android:name=".LoginActivity"/>
-        <activity android:name=".SplashScreenActivity" />
-        <activity android:name=".RegistrationActivity">
+
+        <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".MainActivity" />
+
+        <activity android:name=".DcRegistrationActivity"/>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".RegSuccessActivity" />
+        <activity android:name=".DonationCentreActivity" />
+        <activity android:name=".LogoutActivity" />
+
     </application>
 
 </manifest>

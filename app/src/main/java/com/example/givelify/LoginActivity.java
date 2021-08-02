@@ -1,6 +1,5 @@
 package com.example.givelify;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,17 +12,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
-    private EditText mEmail, mPass;
-    private TextView mTextView;
+    private EditText mEmail,mPass;
     private Button mLoginBtn;
-    private ImageView LoginImage;
+    private ImageView RegisterImage;
 
     private FirebaseAuth mAuth;
 
@@ -41,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
 //        mTextView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//                startActivity(new Intent(LoginActivity.this, RegistrationActivity.class));
+//                startActivity(new Intent(RegistrationActivity.this, SplashScreenActivity.class));
 ////            Sign in Activity should change from registration
 //            }
 //        });
@@ -49,29 +45,20 @@ public class LoginActivity extends AppCompatActivity {
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createUser();
+                loginUser();
             }
 
-            private void createUser() {
+            private void loginUser() {
                 String email = mEmail.getText().toString();
                 String pass = mPass.getText().toString();
 
                 if (!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     if (!pass.isEmpty()) {
-                        mAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(LoginActivity.this, "Registered Succssfully!", Toast.LENGTH_SHORT);
-                                startActivity(new Intent(LoginActivity.this, SplashScreenActivity.class));
-                                finish();
-                                //Change to the activity that comes after you log in successfully
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(LoginActivity.this, "Registration Error!!", Toast.LENGTH_SHORT);
-                            }
-                        });
+                        mAuth.signInWithEmailAndPassword(email, pass ).addOnSuccessListener(authResult -> {
+                            Toast.makeText(LoginActivity.this, "Login Successful!!", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        finish();
+                        }).addOnFailureListener(e -> Toast.makeText(LoginActivity.this, "Login Failed!!", Toast.LENGTH_SHORT).show());
                     } else {
                         mPass.setError("Empty Fields Are Not Allowed");
                     }
@@ -82,5 +69,10 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void launchSignUp(View view) {
+        Intent myIntent = new Intent(LoginActivity.this, RegistrationActivity.class);
+        startActivity(myIntent);
     }
 }
