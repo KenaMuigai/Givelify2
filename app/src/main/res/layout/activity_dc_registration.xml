@@ -39,10 +39,11 @@
             android:id="@+id/dc_reg_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/raleway"
+            android:fontFamily="@font/montserrat_bold"
             android:text="@string/dc_register_header"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/muted_pink"
             android:textSize="30sp"
             android:textStyle="bold" />
 

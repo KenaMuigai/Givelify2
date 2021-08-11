@@ -18,13 +18,19 @@
         app:menu="@menu/nav_menu" />
 
     <TextView
-        android:id="@+id/hello_user"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="40dp"
-        android:text="@string/hello_user"
-        android:textColor="@color/muted_pink"
+        android:text="Hello "
+        android:theme="@style/hello_user"
+        app:layout_constraintBottom_toBottomOf="@id/user"
+        app:layout_constraintEnd_toStartOf="@id/user"
+        tools:layout_constraintBottom_toBottomOf="@id/user" />
+
+    <TextView
+        android:id="@+id/user"
+        style="@style/hello_user"
+        android:text="User"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -7,4 +7,12 @@
         <item name="android:textColor">@color/pink_background</item>
         <item name="android:textSize">24sp</item>
     </style>
+
+    <style name="hello_user">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginEnd">40dp</item>
+        <item name="android:textColor">@color/muted_pink</item>
+    </style>
 </resources>

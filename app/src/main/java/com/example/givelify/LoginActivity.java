@@ -1,7 +1,5 @@
 package com.example.givelify;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -12,14 +10,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText mEmail,mPass;
     private Button mLoginBtn;
     private ImageView RegisterImage;
+    private TextView mSignUp;
 
     private FirebaseAuth mAuth;
 
@@ -31,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         mEmail = findViewById(R.id.email_login);
         mPass = findViewById(R.id.password_login);
         mLoginBtn = findViewById(R.id.button_login);
+        mSignUp=findViewById(R.id.sign_up);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -69,6 +69,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+        mSignUp.setOnClickListener(v -> launchSignUp(v));
     }
 
     public void launchSignUp(View view) {
