@@ -1,10 +1,13 @@
 package com.example.givelify;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,16 +16,26 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.HashMap;
 
+import static android.content.ContentValues.TAG;
+
 public class DcRegistrationActivity extends AppCompatActivity {
     private EditText mName, mEmail, mPass,mConfirmPass,mCity,mDescription;
+    private ProgressBar progBar;
+    private Uri imageUri= Uri.parse("android.resource://com.example.givelify/drawable/charity.png");
 
     private final FirebaseDatabase db = FirebaseDatabase.getInstance();
     private final DatabaseReference root = db.getReference().child("DCenters");
+    private StorageReference reference = FirebaseStorage.getInstance().getReference();
     private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private String user_id =mAuth.getCurrentUser().getUid();
+    private final DatabaseReference current_user_db = root.child(user_id);
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +69,10 @@ public class DcRegistrationActivity extends AppCompatActivity {
             mAuth.createUserWithEmailAndPassword(email,pass).addOnSuccessListener(task -> {
                 Toast.makeText(DcRegistrationActivity.this, "Registered Successfully!", Toast.LENGTH_SHORT).show();
                 saveUserData();
-                }).addOnFailureListener(e -> Toast.makeText(DcRegistrationActivity.this, "Registration Error!!Password Too Short", Toast.LENGTH_SHORT).show());
+                }).addOnFailureListener(e -> {
+                Toast.makeText(DcRegistrationActivity.this, "Registration Error!!", Toast.LENGTH_SHORT).show();
+                Log.w(TAG, "createUserWithEmail:failure", e);
+            });
 
         } else if (email.isEmpty()) {
             mEmail.setError("Empty Fields Are Not Allowed");
@@ -84,12 +100,21 @@ public class DcRegistrationActivity extends AppCompatActivity {
             dcenterMap.put("city", city);
             dcenterMap.put("description", desc);
 
-            root.push().setValue(dcenterMap).addOnCompleteListener(task -> Toast.makeText(DcRegistrationActivity.this, "Data Saved Successfully", Toast.LENGTH_SHORT).show());
-        startActivity(new Intent(DcRegistrationActivity.this, RegSuccessActivity.class));
-        finish();
-        //Change to the activity that comes after you register successfully
+        current_user_db.push().setValue(dcenterMap).addOnCompleteListener(task -> Toast.makeText(DcRegistrationActivity.this, "Data Saved Successfully", Toast.LENGTH_SHORT).show());
+        sendEmailVerification(); // send the user a verification email after registering
 
         }
+    private void sendEmailVerification() {
+        // Send verification email
+        // [START send_email_verification]
+        final FirebaseUser user = mAuth.getCurrentUser();
+        assert user != null;
+        user.sendEmailVerification()
+                .addOnCompleteListener(this, task -> {
+                    startActivity(new Intent(DcRegistrationActivity.this, RegSuccessActivity.class));
+                    finish();
+                });
+    }
     public void onStart(){
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
@@ -101,4 +126,5 @@ public class DcRegistrationActivity extends AppCompatActivity {
 
         }
     }
+
 }

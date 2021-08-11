@@ -40,11 +40,11 @@
 
         <Button
             android:id="@+id/btn_view"
-            android:layout_width="75dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:backgroundTint="@color/muted_pink"
-            android:fontFamily="@font/raleway"
+            android:fontFamily="@font/montserrat"
             android:text="@string/view" />
 
     </LinearLayout>

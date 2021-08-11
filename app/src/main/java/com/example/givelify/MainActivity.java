@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             int id = item.getItemId();
 
             if (id == R.id.view_profile) {
-                Intent i =new Intent(MainActivity.this, ProfileActivity.class);
+                Intent i =new Intent(MainActivity.this, DcProfileActivity.class);
                 startActivity(i);
                 return true;
             }

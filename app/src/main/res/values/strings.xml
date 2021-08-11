@@ -17,12 +17,12 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="reg_description">Description of the Organization</string>
     <string name="reg_org_name">Name of Organization</string>
-    <string name="already_have_an_account">Already have an Account? Sign Up</string>
+    <string name="already_have_an_account">Already have an Account? Sign In</string>
     <string name="sign_in">Sign In</string>
     <string name="city">City</string>
     <string name="donate_today">Donate Today! Giving is about making a difference.</string>
     <string name="registration_successful">Registration Successful!</string>
-    <string name="sent_verification">We have sent a verification email to you at. Confirm your account as soon as possible</string>
+    <string name="sent_verification">We have sent a verification email to you at</string>
     <string name="example_email">example@gmail.com</string>
     <string name="navigate_next">Navigate next</string>
     <string name="no_account_sign_up">Have no account? Sign Up</string>
@@ -44,5 +44,8 @@
     <string name="profile">Profile</string>
     <string name="logout">Logout</string>
     <string name="popular_donation_items">Popular Donation Items</string>
+    <string name="title_activity_donation_items">DonationItems</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 
 </resources>

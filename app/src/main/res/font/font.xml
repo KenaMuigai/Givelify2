@@ -13,9 +13,12 @@
         android:fontWeight="480"
         android:fontStyle="italic"/>
     <font
-        android:font="@font/raleway"
+        android:font="@font/montserrat"
         android:fontWeight="400"
         android:fontStyle="normal"/>
+    <font
+        android:font="@font/montserrat_bold"
+        android:fontWeight="700"/>
 
 </font-family>
 

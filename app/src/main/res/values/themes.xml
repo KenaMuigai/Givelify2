@@ -13,7 +13,17 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/muted_pink</item>
         <!-- Customize your theme here. -->
     </style>
-    <style name="fullscreen" parent="@style/Theme.AppCompat.DayNight.NoActionBar" >
+
+    <style name="fullscreen" parent="@style/Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:statusBarColor" tools:targetApi="l">@color/pink_background</item>
     </style>
+
+    <style name="Theme.Givelify.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Givelify.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Givelify.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
