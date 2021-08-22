@@ -27,17 +27,16 @@
 
     </TextView>
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/dc_view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabIndicatorColor="@color/dark_pink"
             app:tabSelectedTextColor="@color/dark_pink"/>
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/dc_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
     </androidx.viewpager2.widget.ViewPager2>
 </LinearLayout>
