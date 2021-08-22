@@ -20,6 +20,7 @@ public class RegSuccessActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg_success);
+
         fab=findViewById(R.id.fab_next);
         sentEmail= findViewById(R.id.sent_email);
         sentEmail.setText(user.getEmail());
