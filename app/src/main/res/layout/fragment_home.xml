@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment"
     android:background="@color/dark_blue">
 
 
@@ -21,7 +22,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello"
+        android:text="Hello "
         android:theme="@style/hello_user"
         app:layout_constraintBottom_toBottomOf="@id/user"
         app:layout_constraintEnd_toStartOf="@id/user"
@@ -131,21 +132,6 @@
             android:paddingVertical="8dp"
             app:layout_constraintTop_toBottomOf="@id/popular_items"
             tools:layout_editor_absoluteX="5dp" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_donate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:clickable="true"
-            android:contentDescription="@string/fab_donate"
-            android:tint="@color/white"
-            app:backgroundTint="@color/dark_pink"
-            app:fabSize="normal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_location"
-            tools:useCompatPadding="true" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -47,5 +47,39 @@
     <string name="title_activity_donation_items">DonationItems</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+    <string name="title_activity_dc_donation_items">DcDonationItemsActivity</string>
+    <string-array name="categories_spinner">
+        <item>Category</item>
+        <item>Animal Welfare</item>
+        <item>Arts and Culture</item>
+        <item>Peace and Human Rights</item>
+        <item>Community Development</item>
+        <item>Education</item>
+        <item>Environmental</item>
+        <item>Health</item>
+        <item>Human Services</item>
+        <item>International NGOs</item>
+    </string-array>
+    <string-array name="cities_spinner">
+        <item>City</item>
+        <item>Nairobi</item>
+        <item>Nakuru</item>
+        <item>Mombasa</item>
+        <item>Kisumu</item>
+        <item>Eldoret</item>
+        <item>Thika</item>
+    </string-array>
+    <string name="title_activity_home">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_discover">Discover</string>
+    <string name="title_map">Map</string>
+    <string name="title_profile">Profile</string>
+    <string name="send">Send</string>
+    <string name="cancel">Cancel</string>
+    <string name="updated">Profile Updated Successfully</string>
+    <string name="hello">Hello</string>
+    <string name="website_optional">Website (optional)</string>
 
 </resources>

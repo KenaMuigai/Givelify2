@@ -4,31 +4,63 @@ import java.util.ArrayList;
 
 public class DonationCentre {
     private String name;
+    private String email;
     private String description;
-    private ArrayList<DonationItem> itemList;
     private String category;
     private String city;
+    private String pass;
+    private String phone;
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    private String website;
     private Integer imageUrl;
 
-    public DonationCentre(){
-
-        this.name = "";
-        this.description="";
-        this.itemList= new ArrayList<>();
-        this.category="";
-        this.city="";
-        this.imageUrl=0;
-    }
-    public DonationCentre(String name, String description, ArrayList<DonationItem> itemList, String category, String city, Integer imageUrl){
+    public DonationCentre(String name, String description, ArrayList<String> itemList, String category, String city, Integer imageUrl){
 
         this.name = name;
         this.description= description;
-        this.itemList= itemList;
         this.category=category;
         this.city=city;
         this.imageUrl=imageUrl;
     }
+    public  DonationCentre(){
+        this.name = "";
+        this.email="";
+        this.pass= "";
+        this.phone="";
+        this.website="";
+        this.description= "";
+        this.category="";
+        this.city="";
+    }
 
+
+    public DonationCentre(String name, String email, String pass, String description, String category, String website,String city,String phone, Boolean isVerified){
+
+        this.name = name;
+        this.email=email;
+        this.pass= pass;
+        this.phone=phone;
+        this.website=website;
+        this.description= description;
+        this.category=category;
+        this.city=city;
+    }
     public Integer getImageUrl() {
         return imageUrl;
     }
@@ -53,14 +85,6 @@ public class DonationCentre {
         this.description = description;
     }
 
-    public ArrayList<DonationItem> getItemList() {
-        return itemList;
-    }
-
-    public void setItemList(ArrayList<DonationItem> itemList) {
-        this.itemList = itemList;
-    }
-
     public String getCategory() {
         return category;
     }
@@ -75,5 +99,20 @@ public class DonationCentre {
 
     public void setCity(String city) {
         this.city = city;
+    }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 }

@@ -15,4 +15,14 @@
         <item name="android:layout_marginEnd">40dp</item>
         <item name="android:textColor">@color/muted_pink</item>
     </style>
+
+    <style name="cv_action">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">150dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:clickable">true</item>
+        <item name="android:elevation">20dp</item>
+        <item name="android:padding">10dp</item>
+    </style>
 </resources>
