@@ -1,4 +1,4 @@
-package com.example.givelify.ui.home;
+package com.example.givelify.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,11 +23,11 @@ import com.example.givelify.databinding.FragmentHomeBinding;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment {
+public class MainFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
+    private MainViewModel homeViewModel;
     private FragmentHomeBinding binding;
-   private ArrayList<DonationCentre> dcArrayList;
+    private ArrayList<DonationCentre> dcArrayList;
     private ArrayList<String> dcUserIDList;
     private RecyclerView rvDonationCentres;
     private DcAdapter dcAdapter;
@@ -42,7 +42,7 @@ public class HomeFragment extends Fragment {
 
 
         homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+                new ViewModelProvider(this).get(MainViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -50,7 +50,7 @@ public class HomeFragment extends Fragment {
         //get the toolbar
         binding.toolbar.setOnMenuItemClickListener(item -> {
             int id = item.getItemId();
-             if (id == R.id.logout) {
+            if (id == R.id.logout) {
                 Intent i =new Intent(getActivity(), LogoutActivity.class);
                 startActivity(i);
                 return true;

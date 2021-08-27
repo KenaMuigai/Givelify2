@@ -1,4 +1,4 @@
-package com.example.givelify.ui.home;
+package com.example.givelify.ui.main;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -18,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class HomeViewModel extends ViewModel {
+public class MainViewModel extends ViewModel {
 
     private MutableLiveData<String> username,userCity;
     private final FirebaseDatabase db=FirebaseDatabase.getInstance();
@@ -30,13 +30,13 @@ public class HomeViewModel extends ViewModel {
 
 
     private MutableLiveData<ArrayList<DonationCentre>> dcMutableArrayList;
-   private MutableLiveData<ArrayList<String>> dcMutableUserIDList;
-   private ArrayList<DonationCentre> dcArrayList;
+    private MutableLiveData<ArrayList<String>> dcMutableUserIDList;
+    private ArrayList<DonationCentre> dcArrayList;
     private ArrayList<String> dcUserIDList;
     String city;
 
 
-    public HomeViewModel() {
+    public MainViewModel() {
         if(currentUser!=null){
             String displayName =currentUser.getDisplayName();
             username = new MutableLiveData<>();

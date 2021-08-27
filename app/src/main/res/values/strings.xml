@@ -81,5 +81,9 @@
     <string name="updated">Profile Updated Successfully</string>
     <string name="hello">Hello</string>
     <string name="website_optional">Website (optional)</string>
+    <string name="accepted_items">Accepted Items</string>
+    <string name="prohibited_items">Prohibited Items</string>
+    <string name="common_donation_items">Common Donation Items</string>
+    <string name="map">Map</string>
 
 </resources>

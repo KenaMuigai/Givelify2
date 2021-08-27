@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="10dp"
+    android:orientation="vertical"
+    android:padding="15dp"
+    tools:ignore="HardcodedText">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Add New item"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/dark_blue" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Choose Item Type"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/muted_pink" />
+
+    <RadioGroup
+        android:id="@+id/radio_item_type"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RadioButton
+            android:id="@+id/radio_accepted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:buttonTint="@color/muted_pink"
+            android:fontFamily="@font/montserrat"
+            android:text="Accepted Item" />
+
+        <RadioButton
+            android:id="@+id/radio_prohibited"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:buttonTint="@color/muted_pink"
+            android:fontFamily="@font/montserrat"
+            android:text="Prohibited Item" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Item Name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/muted_pink" />
+
+    <EditText
+        android:id="@+id/et_item_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:autofillHints="true"
+        android:background="@drawable/et_shape"
+        android:ems="10"
+        android:fontFamily="@font/montserrat"
+        android:hint="Enter the name of the item"
+        android:inputType="textShortMessage|text"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+    <Button
+        android:id="@+id/btn_add_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/dark_pink"
+        android:fontFamily="@font/montserrat"
+        android:text="Add"
+        android:textColor="@color/white" />
+</LinearLayout>

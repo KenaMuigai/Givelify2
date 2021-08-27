@@ -1,0 +1,23 @@
+<resources>
+    <!--
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=BA:45:D6:09:AA:BF:67:DE:00:70:93:8D:5A:C3:21:5B:14:D1:1B:58%3Bcom.example.givelify
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    com.example.givelify
+
+    SHA-1 certificate fingerprint:
+    BA:45:D6:09:AA:BF:67:DE:00:70:93:8D:5A:C3:21:5B:14:D1:1B:58
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDm_MFwCYejdN1sd6wuwTVD_QCtTwVJ-cY</string>
+</resources>

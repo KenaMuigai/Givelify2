@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                    startActivity(dcenterIntent);
                    finish();
                 } else{
-                    Intent dcenterIntent = new Intent(LoginActivity.this,MainActivity.class);
+                    Intent dcenterIntent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(dcenterIntent);
                     finish();
                 }
