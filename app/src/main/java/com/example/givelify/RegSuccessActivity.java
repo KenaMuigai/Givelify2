@@ -26,7 +26,7 @@ public class RegSuccessActivity extends AppCompatActivity {
         sentEmail.setText(user.getEmail());
 
         fab.setOnClickListener(v -> {
-            startActivity(new Intent(RegSuccessActivity.this,MainActivity.class));
+            startActivity(new Intent(RegSuccessActivity.this, MainActivity.class));
             finish();
         });
     }
