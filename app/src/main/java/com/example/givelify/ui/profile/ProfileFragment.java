@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.givelify.DcDonationItemsActivity;
 import com.example.givelify.DcProfileActivity;
 import com.example.givelify.LoginActivity;
 import com.example.givelify.LogoutActivity;
@@ -72,6 +73,13 @@ public class ProfileFragment extends Fragment {
         binding.cvEditProfile.setOnClickListener(v -> {
             Intent intent= new Intent(getActivity(), DcProfileActivity.class);
             startActivity(intent);
+        });
+        binding.cvItemsList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), DcDonationItemsActivity.class);
+                startActivity(intent);
+            }
         });
         return root;
     }
