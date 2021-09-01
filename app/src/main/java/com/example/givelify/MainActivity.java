@@ -2,6 +2,7 @@ package com.example.givelify;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -40,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.myNavView, navController);
+
+        binding.fabDonate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent donateIntent = new Intent(MainActivity.this,PickupActivity.class);
+                startActivity(donateIntent);
+            }
+        });
     }
 
 }

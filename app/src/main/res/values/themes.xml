@@ -41,4 +41,22 @@
     <style name="Theme.Givelify.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Givelify.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Widget.MyApp.Chip.Choice" parent="Widget.MaterialComponents.Chip.Choice">
+        ...
+        <item name="materialThemeOverlay">@style/ThemeOverlay.MyApp.Chip.Choice</item>
+    </style>
+
+    <!-- Disabling elevation overlays because when chip's default background/surface
+         composite are combined with elevation overlays in a highly elevated dialog,
+         the resulting color becomes too light and causes contrast
+         issues. -->
+    <style name="ThemeOverlay.MyApp.Chip.Choice" parent="">
+        <item name="elevationOverlayEnabled">false</item>
+        <item name="android:textColor">@color/muted_pink</item>
+        <item name="itemTextAppearanceActive">@color/dark_pink</item>
+        <item name="backgroundTint">@color/muted_pink</item>
+        <item name="fontFamily">@font/montserrat</item>
+    </style>
+
+
 </resources>

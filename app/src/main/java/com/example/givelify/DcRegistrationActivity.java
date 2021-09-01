@@ -33,23 +33,33 @@ import com.google.firebase.storage.StorageReference;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 import static android.content.ContentValues.TAG;
 
 public class DcRegistrationActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener{
     private EditText mName, mEmail, mPass,mConfirmPass,mDescription,mPhone,mWebsite;
-    private Uri imageUri= Uri.parse("android.resource://com.example.givelify/"+R.mipmap.default_profile_image);
+    private Uri imageUri= Uri.parse("android.resource://com.example.givelify/"+R.drawable.charity);
     private Spinner citySpinner, categorySpinner;
     private String mCategorySpinnerLabel,mCitySpinnerLabel;
     private ArrayList<String> donationItemsList;
+    private String[] myareasList;
+    Boolean isSelected;
+
 
     private final FirebaseDatabase db = FirebaseDatabase.getInstance();
     private final DatabaseReference root = db.getReference().child("DCenters");
     private final DatabaseReference dbroot = db.getReference();
-    private final DatabaseReference cityRef = db.getReference().child("Dc_Cities");
-    private final DatabaseReference categoryRef = db.getReference().child("Dc_Categories");
-    private StorageReference reference = FirebaseStorage.getInstance().getReference();
+    private StorageReference reference =FirebaseStorage.getInstance().getReference().child("Profile Pictures");
+    private final DatabaseReference dcPickupRef= db.getReference().child("Dc_PickupDetails");
+    private final DatabaseReference dcAreaRef= dbroot.child("Dc_Areas");
+
+
+
     private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -66,8 +76,8 @@ public class DcRegistrationActivity extends AppCompatActivity implements View.On
         Button mBtn = findViewById(R.id.sign_up_btn);
         categorySpinner=findViewById(R.id.spinner_categories);
         citySpinner=findViewById(R.id.spinner_cities);
-        mPhone = (EditText) findViewById(R.id.phone_reg);
-        mWebsite = (EditText) findViewById(R.id.website_reg);
+        mPhone = findViewById(R.id.phone_reg);
+        mWebsite = findViewById(R.id.website_reg);
 
         mBtn.setOnClickListener(v -> {
             createUser();
@@ -81,13 +91,13 @@ public class DcRegistrationActivity extends AppCompatActivity implements View.On
                 System.out.println("User not logged in");
             }
         };
-        categorySpinner = (Spinner) findViewById(R.id.spinner_categories);
+        categorySpinner = findViewById(R.id.spinner_categories);
         ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(this,R.array.categories_spinner, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(adapter);
         categorySpinner.setOnItemSelectedListener(this);
 
-        citySpinner = (Spinner) findViewById(R.id.spinner_cities);
+        citySpinner = findViewById(R.id.spinner_cities);
         ArrayAdapter<CharSequence> cityAdapter= ArrayAdapter.createFromResource(this,R.array.cities_spinner, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         citySpinner.setAdapter(cityAdapter);
@@ -130,12 +140,18 @@ public class DcRegistrationActivity extends AppCompatActivity implements View.On
         String name= mName.getText().toString().trim();
         String phone= mPhone.getText().toString().trim();
         String web= mWebsite.getText().toString().trim();
+        String date;
+
+        //get current date
+        Date c = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+        date = df.format(c);
 
         if (web.equals("")){
             web="www.defaultwebsite.com";
         }
         //add the user's info to the realtime database
-        DonationCentre dCenter= new DonationCentre(name,email,pass,desc,mCategorySpinnerLabel,web,mCitySpinnerLabel,phone,false);
+        DonationCentre dCenter= new DonationCentre(name,email,pass,desc,mCategorySpinnerLabel,web,mCitySpinnerLabel,phone,false,date);
         current_user_db.setValue(dCenter).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull @NotNull Task<Void> task) {
@@ -146,6 +162,7 @@ public class DcRegistrationActivity extends AppCompatActivity implements View.On
                         .setDisplayName(name)
                         .setPhotoUri(imageUri)
                         .build();
+                uploadToFirebase();
 
                 user.updateProfile(profileUpdates)
                         .addOnCompleteListener(task1 -> {
@@ -160,10 +177,9 @@ public class DcRegistrationActivity extends AppCompatActivity implements View.On
                         });
                 //add default accepted donation items
                 addDefaultDonationItems();
-
-                //add uderid to the cityref and categoryref under what they selected
-                cityRef.child(mCitySpinnerLabel).child(user_id).setValue(true);
-                categoryRef.child(mCategorySpinnerLabel).child(user_id).setValue(true);
+                addPickupDays();
+                addAreas();
+                addGuidelines();
             }
         });
 
@@ -241,6 +257,91 @@ public class DcRegistrationActivity extends AppCompatActivity implements View.On
         });
 
 
+    }
+    private void addPickupDays(){
+        FirebaseUser currentUser =mAuth.getCurrentUser();
+        dcPickupRef.child(currentUser.getUid()).child("Days").child("Sunday").setValue(false);
+        dcPickupRef.child(currentUser.getUid()).child("Days").child("Monday").setValue(false);
+        dcPickupRef.child(currentUser.getUid()).child("Days").child("Tuesday").setValue(false);
+        dcPickupRef.child(currentUser.getUid()).child("Days").child("Wednesday").setValue(false);
+        dcPickupRef.child(currentUser.getUid()).child("Days").child("Thursday").setValue(false);
+        dcPickupRef.child(currentUser.getUid()).child("Days").child("Friday").setValue(false);
+        dcPickupRef.child(currentUser.getUid()).child("Days").child("Saturday").setValue(false);
+
+    }
+    private void addAreas(){
+        FirebaseUser currentUser =mAuth.getCurrentUser();
+        assert currentUser != null;
+        String user_id = currentUser.getUid();
+        DatabaseReference current_user_db = root.child(user_id);
+
+        current_user_db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                String city= snapshot.child("city").getValue().toString();
+                switch (city){
+                    case "Nairobi":
+                        myareasList=DcRegistrationActivity.this.getResources().getStringArray(R.array.nairobi_spinner);
+                        for (String areaTitle : myareasList) {
+                            dcPickupRef.child(currentUser.getUid()).child("Areas").child(areaTitle).setValue(false);
+                            dcAreaRef.child("Areas").child(areaTitle).child(currentUser.getUid()).setValue(false);
+                        }
+                        break;
+                    case "Nakuru":
+                        myareasList=DcRegistrationActivity.this.getResources().getStringArray(R.array.nakuru_spinner);
+                        for (int i=0; i<myareasList.length;i++){
+                            dcPickupRef.child(currentUser.getUid()).child("Areas").child(myareasList[i]).setValue(false);
+                            dcAreaRef.child("Areas").child(myareasList[i]).child(currentUser.getUid()).setValue(false);
+                        }
+                        break;
+                    case "Mombasa":
+                        myareasList=DcRegistrationActivity.this.getResources().getStringArray(R.array.mombasa_spinner);
+                        for (int i=0; i<myareasList.length;i++){
+                            dcPickupRef.child(currentUser.getUid()).child("Areas").child(myareasList[i]).setValue(false);
+                            dcAreaRef.child("Areas").child(myareasList[i]).child(currentUser.getUid()).setValue(false);
+                        }
+                        break;
+                    case "Kisumu":
+                        myareasList=DcRegistrationActivity.this.getResources().getStringArray(R.array.kisumu_spinner);
+                        for (int i=0; i<myareasList.length;i++){
+                            dcPickupRef.child(currentUser.getUid()).child("Areas").child(myareasList[i]).setValue(false);
+                            dcAreaRef.child("Areas").child(myareasList[i]).child(currentUser.getUid()).setValue(false);
+                        }
+                        break;
+                    case "Kiambu":
+                        myareasList=DcRegistrationActivity.this.getResources().getStringArray(R.array.kiambu_spinner);
+                        for (int i=0; i<myareasList.length;i++){
+                            dcPickupRef.child(currentUser.getUid()).child("Areas").child(myareasList[i]).setValue(false);
+                            dcAreaRef.child("Areas").child(myareasList[i]).child(currentUser.getUid()).setValue(false);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
+    }
+    private void addGuidelines(){
+        FirebaseUser currentUser =mAuth.getCurrentUser();
+        dcPickupRef.child(currentUser.getUid()).child("Guidelines").setValue("Default");
+
+    }
+    private void uploadToFirebase() {
+        //StorageReference fileref = reference.child(mAuth.getCurrentUser().getUid()+"."+getFileExtension(uri));
+
+        StorageReference fileref = reference.child(mAuth.getCurrentUser().getUid());
+        fileref.putFile(imageUri).addOnSuccessListener(taskSnapshot -> fileref.getDownloadUrl().addOnSuccessListener(uri1 -> {
+            Toast.makeText(DcRegistrationActivity.this, "Upload Successful", Toast.LENGTH_SHORT).show();
+        })).addOnFailureListener(e -> {
+            Toast.makeText(DcRegistrationActivity.this, "Upload Failed", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        });
     }
 
     public void onStart(){

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="HardcodedText">
+
+    <item
+        android:id="@+id/step1"
+        android:title="Location" />
+    <item
+        android:id="@+id/step2"
+        android:title="Donation Center" />
+    <item
+        android:id="@+id/step3"
+        android:title="Date and Time" />
+    <item
+        android:id="@+id/step4"
+        android:title="Item Details" />
+    <item
+        android:id="@+id/step5"
+        android:title="Confirm" />
+</menu>
