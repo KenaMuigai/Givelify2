@@ -14,6 +14,7 @@
         android:background="@color/white"
         android:contentDescription="@string/donation_centre_image"
         android:padding="10dp"
+        app:srcCompat="@drawable/charity"
         tools:srcCompat="@tools:sample/avatars[2]" />
 
     <TextView
@@ -33,10 +34,11 @@
             android:layout_height="wrap_content"
             app:tabIndicatorColor="@color/dark_pink"
             app:tabSelectedTextColor="@color/dark_pink"/>
-    <androidx.viewpager2.widget.ViewPager2
+
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/dc_view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
-    </androidx.viewpager2.widget.ViewPager2>
+    </androidx.viewpager.widget.ViewPager>
 </LinearLayout>

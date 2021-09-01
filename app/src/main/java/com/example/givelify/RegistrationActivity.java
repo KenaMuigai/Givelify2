@@ -19,7 +19,11 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 
 import static android.content.ContentValues.TAG;
 
@@ -85,6 +89,13 @@ public class RegistrationActivity extends AppCompatActivity {
         String city= mCity.getText().toString();
         String name= mFullName.getText().toString();
         String phone= mPhoneNo.getText().toString();
+        String date;
+
+        //get current date
+        Date c = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+        date = df.format(c);
+
 
         //add their info and data to realtime db
         HashMap<String, String> dcenterMap = new HashMap<>();
@@ -93,6 +104,8 @@ public class RegistrationActivity extends AppCompatActivity {
         dcenterMap.put("password", pass);
         dcenterMap.put("city", city);
         dcenterMap.put("phone", phone);
+        dcenterMap.put("date", date);
+
 
         current_user_db.setValue(dcenterMap).addOnCompleteListener(task -> Toast.makeText(RegistrationActivity.this, "Data Saved Successfully", Toast.LENGTH_SHORT).show());
         sendEmailVerification();

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="nairobi_spinner">
+        <item>Dagoretti North</item>
+        <item>Dagoretti South</item>
+        <item>Embakasi Central</item>
+        <item>Embakasi East</item>
+        <item>Embakasi North</item>
+        <item>Embakasi South</item>
+        <item>Embakasi West</item>
+        <item>Kibra</item>
+        <item>Kasarani</item>
+        <item>Kamukunji</item>
+        <item>Lang\'ata</item>
+        <item>Makadara</item>
+        <item>Mathare</item>
+        <item>Roysambu</item>
+        <item>Ruaraka</item>
+        <item>Starehe</item>
+    </string-array>
+    <string-array name="nakuru_spinner">
+        <item>Molo</item>
+        <item>Njoro</item>
+        <item>Naivasha</item>
+        <item>Gilgil</item>
+        <item>Kuresoi South</item>
+        <item>Nakuru Town West</item>
+    </string-array>
+    <string-array name="mombasa_spinner">
+        <item>Changamwe</item>
+        <item>Jomvu</item>
+        <item>Kisauni</item>
+        <item>Nyali</item>
+        <item>Likoni</item>
+        <item>Mvita</item>
+    </string-array>
+    <string-array name="kisumu_spinner">
+        <item>Kisumu East</item>
+        <item>Kisumu West</item>
+        <item>Muhoroni</item>
+        <item>Nyando</item>
+        <item>Nyakach</item>
+        <item>Nyando</item>
+    </string-array>
+    <string-array name="kiambu_spinner">
+        <item>Gatundu South</item>
+        <item>Juja</item>
+        <item>Thika</item>
+        <item>Ruiru</item>
+        <item>Kiambu</item>
+        <item>Kikuyu</item>
+    </string-array>
+</resources>

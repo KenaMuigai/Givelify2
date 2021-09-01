@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.givelify.Adapters.DcAdapter;
+import com.example.givelify.Adapters.HomeDcAdapter;
 import com.example.givelify.LogoutActivity;
 import com.example.givelify.Models.DonationCentre;
 import com.example.givelify.R;
@@ -30,7 +30,7 @@ public class HomeFragment extends Fragment {
    private ArrayList<DonationCentre> dcArrayList;
     private ArrayList<String> dcUserIDList;
     private RecyclerView rvDonationCentres;
-    private DcAdapter dcAdapter;
+    private HomeDcAdapter dcAdapter;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -92,10 +92,10 @@ public class HomeFragment extends Fragment {
         rvDonationCentres = binding.rvFragDonationCentres;
 
         //the recyclerview is set to horizontal so that the list goes horizontally to fit the layout
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.requireContext(),RecyclerView.HORIZONTAL,false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.requireContext(),RecyclerView.VERTICAL,false);
         rvDonationCentres.setLayoutManager(layoutManager);
 
-        dcAdapter= new DcAdapter(dcArrayList, dcUserIDList,this.requireContext());
+        dcAdapter= new HomeDcAdapter(dcArrayList, dcUserIDList,this.requireContext());
 
         rvDonationCentres.setAdapter(dcAdapter);
     }

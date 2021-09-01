@@ -11,6 +11,16 @@ public class DonationCentre {
     private String pass;
     private String phone;
 
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    private String createdAt;
+
     public String getPhone() {
         return phone;
     }
@@ -30,13 +40,13 @@ public class DonationCentre {
     private String website;
     private Integer imageUrl;
 
-    public DonationCentre(String name, String description, ArrayList<String> itemList, String category, String city, Integer imageUrl){
-
+    public DonationCentre(String name, String description, ArrayList<String> itemList, String category, String city, Integer imageUrl,String createdAt){
         this.name = name;
         this.description= description;
         this.category=category;
         this.city=city;
         this.imageUrl=imageUrl;
+        this.createdAt=createdAt;
     }
     public  DonationCentre(){
         this.name = "";
@@ -47,10 +57,11 @@ public class DonationCentre {
         this.description= "";
         this.category="";
         this.city="";
+        this.createdAt="";
     }
 
 
-    public DonationCentre(String name, String email, String pass, String description, String category, String website,String city,String phone, Boolean isVerified){
+    public DonationCentre(String name, String email, String pass, String description, String category, String website,String city,String phone, Boolean isVerified,String createdAt){
 
         this.name = name;
         this.email=email;
@@ -60,6 +71,7 @@ public class DonationCentre {
         this.description= description;
         this.category=category;
         this.city=city;
+        this.createdAt=createdAt;
     }
     public Integer getImageUrl() {
         return imageUrl;
