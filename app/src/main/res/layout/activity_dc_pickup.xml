@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".DcPickupActivity"
+    tools:ignore="HardcodedText">
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Pickup Information"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/muted_pink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Pickup Location"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/dark_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView9" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/city"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/muted_pink"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView16" />
+
+    <TextView
+        android:id="@+id/dc_pickup_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/nairobi"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toBottomOf="@id/textView17"
+        app:layout_constraintStart_toEndOf="@id/textView17"
+        app:layout_constraintTop_toTopOf="@id/textView17" />
+
+    <TextView
+        android:id="@+id/tv_areas_accepted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Areas Accepted"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/muted_pink"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dc_pickup_city" />
+
+    <Button
+        android:id="@+id/btn_edit_areas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/dark_pink"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Edit"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/edit_image"
+        app:iconGravity="end"
+        app:layout_constraintBottom_toBottomOf="@id/tv_areas_accepted"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_areas_accepted" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Pickup Days"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/dark_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_areas_accepted" />
+
+    <LinearLayout
+        android:id="@+id/row1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/textView15"
+        tools:layout_editor_absoluteX="10dp">
+
+        <CheckBox
+            android:id="@+id/cb_sunday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:buttonTint="@color/muted_pink"
+            android:fontFamily="@font/montserrat"
+            android:text="Sunday"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <CheckBox
+            android:id="@+id/cb_monday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:buttonTint="@color/muted_pink"
+            android:fontFamily="@font/montserrat"
+            android:text="Monday"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <CheckBox
+            android:id="@+id/cb_tuesday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:buttonTint="@color/muted_pink"
+            android:fontFamily="@font/montserrat"
+            android:text="Tuesday"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/row2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/row1"
+        tools:layout_editor_absoluteX="10dp">
+
+        <CheckBox
+            android:id="@+id/cb_wednesday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:buttonTint="@color/muted_pink"
+            android:fontFamily="@font/montserrat"
+            android:text="Wednesday"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <CheckBox
+            android:id="@+id/cb_thursday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:buttonTint="@color/muted_pink"
+            android:fontFamily="@font/montserrat"
+            android:text="Thursday"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <CheckBox
+            android:id="@+id/cb_friday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:buttonTint="@color/muted_pink"
+            android:fontFamily="@font/montserrat"
+            android:text="Friday"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/cb_saturday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/muted_pink"
+        android:fontFamily="@font/montserrat"
+        android:text="Saturday"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/row2" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Pickup Guidelines"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/dark_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cb_saturday" />
+
+    <EditText
+        android:id="@+id/et_guidelines"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/et_shape"
+        android:ems="10"
+        android:fontFamily="@font/montserrat"
+        android:gravity="start|top"
+        android:hint="Enter Guidelines for Pickup Here"
+        android:inputType="textMultiLine"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView19" />
+
+    <Button
+        android:id="@+id/btn_save_guidelines"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Save Guidelines"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_guidelines" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

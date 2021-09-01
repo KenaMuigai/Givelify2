@@ -49,7 +49,7 @@ public class DcProfileActivity extends AppCompatActivity {
     private ProgressBar progBar;
     private Uri imageUri;
     private TextView mName,mEmail,mWebsite,mCity,mPhone,mDescription,mCategory,mPass,changePass;
-    private String pass;
+    private String pass,date;
     private ImageButton mEditImage;
     private boolean profileUpdated;
     //default image
@@ -131,7 +131,7 @@ public class DcProfileActivity extends AppCompatActivity {
         String phone=mPhone.getText().toString().trim();
         String desc=mDescription.getText().toString().trim();
 
-        DonationCentre dCenter= new DonationCentre(name,email,pass,desc,category,web,city,phone,false);
+        DonationCentre dCenter= new DonationCentre(name,email,pass,desc,category,web,city,phone,false,date);
         current_user_db.setValue(dCenter).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull @NotNull Task<Void> task) {
@@ -158,6 +158,7 @@ public class DcProfileActivity extends AppCompatActivity {
                 mDescription.setText(donationCentre.getDescription());
                 mCategory.setText(donationCentre.getCategory());
                 pass=donationCentre.getPass();
+                date= donationCentre.getCreatedAt();
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {

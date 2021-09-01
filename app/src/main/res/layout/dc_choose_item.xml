@@ -12,14 +12,14 @@
     app:cardElevation="8dp">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="8dp">
 
         <ImageView
             android:id="@+id/dc_image"
-            android:layout_width="150dp"
+            android:layout_width="250dp"
             android:layout_height="150dp"
             android:adjustViewBounds="true"
             android:background="@color/white"
@@ -33,19 +33,42 @@
             android:layout_height="wrap_content"
             android:maxHeight="100dp"
             android:padding="10dp"
+            android:textAlignment="center"
             android:textSize="15sp"
             tools:text="@tools:sample/lorem">
 
         </TextView>
 
-        <Button
-            android:id="@+id/btn_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:backgroundTint="@color/muted_pink"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/view" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:backgroundTint="@color/muted_pink"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/view" />
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent" />
+
+            <Button
+                android:id="@+id/btn_choose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Select"
+                app:icon="@drawable/ic_next_white"
+                app:iconGravity="end" />
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Givelify</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDm_MFwCYejdN1sd6wuwTVD_QCtTwVJ-cY</string>
+
     <string name="donations_logo">Givelify Logo</string>
     <string name="sign_up_text">Your Details</string>
     <string name="full_name_sign_up">Full Name</string>
@@ -66,9 +68,9 @@
         <item>Nakuru</item>
         <item>Mombasa</item>
         <item>Kisumu</item>
-        <item>Eldoret</item>
-        <item>Thika</item>
+        <item>Kiambu</item>
     </string-array>
+
     <string name="title_activity_home">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -85,5 +87,19 @@
     <string name="prohibited_items">Prohibited Items</string>
     <string name="common_donation_items">Common Donation Items</string>
     <string name="map">Map</string>
+    <string name="donatemenu">Donate</string>
+    <string name="discover">Discover</string>
+    <string name="title_activity_pickup2">PickupActivity2</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="multi_select_dialog_title">Select Areas</string>
+    <string name="title_activity_dc_pickup">DcPickupActivity</string>
+    <string name="small">Small</string>
 
 </resources>
